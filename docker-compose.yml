@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: linkvault-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: linkvault
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./linkvault-backend
+    container_name: linkvault-backend
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/linkvault
+      JWT_SECRET: linkvault_super_secret_jwt_key_2024
+      JWT_EXPIRES_IN: 7d
+      PORT: 5000
+      CLIENT_URL: http://localhost:80
+      BASE_URL: http://localhost:5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "npx prisma db push && npm start"
+
+  frontend:
+    build: ./linkvault-frontend
+    container_name: linkvault-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
