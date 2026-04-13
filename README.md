@@ -1,6 +1,6 @@
 # 🔗 LinkVault — URL Shortener with Analytics
 
-> A production-ready, full-stack URL Shortener platform with real-time analytics, QR code generation, geographic tracking, and bulk URL processing. Built for the Katomaran Hackathon 2026.
+> A production-ready, full-stack URL Shortener platform with real-time analytics, QR code generation, geographic tracking, and bulk URL processing.
 
 ![LinkVault](https://img.shields.io/badge/LinkVault-URL%20Shortener-FFD700?style=for-the-badge&logo=link&logoColor=black)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -19,14 +19,6 @@
 | **Frontend** | https://linkvault-sandy.vercel.app |
 | **Backend API** | https://linkvault-production-a4ea.up.railway.app |
 | **Health Check** | https://linkvault-production-a4ea.up.railway.app/health |
-
----
-
-## 🎥 Demo Video
-
-> 📹 [Watch the Demo on Loom](https://www.loom.com/share/70177ead1b194ff99b04c1f7c2d3e2fd)
-
-
 ---
 
 ## 📋 Table of Contents
@@ -742,16 +734,3 @@ linkvault/
 ├── docker-compose.prod.yml
 └── README.md
 ```
-
----
-
-## 👤 Author
-
-**Praneet A R**
-- GitHub: [@PraneetAR](https://github.com/PraneetAR)
-- Project: [LinkVault](https://github.com/PraneetAR/linkvault)
-- Live Demo: [DEMO](https://www.loom.com/share/70177ead1b194ff99b04c1f7c2d3e2fd)
-
----
-
-> This project is a part of a hackathon run by https://katomaran.com
